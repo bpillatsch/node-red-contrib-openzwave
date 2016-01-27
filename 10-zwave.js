@@ -243,7 +243,7 @@ module.exports = function (RED) {
         zwcallback('node event', {
             "nodeid": nodeid, "event": evtcode,
             "cmdclass": valueId.comclass, "cmdidx": valueId.index, "instance": valueId.instance,
-            "msg": msg
+            "msg": help
         });
     }
 
@@ -531,6 +531,9 @@ module.exports = function (RED) {
                     res.send(200);
                     break;
                 case 'remove':
+					ozwDriver.removeNode();
+					res.send(200);
+					break;
                 case 'delete':
                     ozwDriver.beginControllerCommand('RemoveDevice', true);
                     res.send(200);
