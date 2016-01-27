@@ -297,7 +297,8 @@ module.exports = function (RED) {
             ozwDriver = new OpenZWave({
                 Logging: debug,
                 ConsoleOutput: debug,
-                QueueLogLevel: 6
+                QueueLogLevel: 6,
+				NetworkKey: "0xd2,0x58,0x85,0x11,0xa2,0x50,0xbc,0xd9,0xf4,0xa5,0x85,0x48,0x3f,0x9f,0xf8,0x06"
             });
         }
 
@@ -544,7 +545,7 @@ module.exports = function (RED) {
                     res.send(200);
                     break;
                 case 'cancel':
-                    ozwDriver.cancelControllerCommand(true);
+                    ozwDriver.addNode(true);
                     res.send(200);
                     break;
                 case 'list_nodes':
